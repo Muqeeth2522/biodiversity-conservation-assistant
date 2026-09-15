@@ -4,6 +4,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Identify from './pages/Identify';
 import MapView from './pages/MapView';
+import Dashboard from './pages/Dashboard';
+import Chatbot from './pages/Chatbot';
 import About from './pages/About';
 
 function App() {
@@ -11,11 +13,13 @@ function App() {
 
   const renderPage = () => {
     switch(currentPage) {
-      case 'home':     return <Home setPage={setCurrentPage} />;
-      case 'identify': return <Identify />;
-      case 'map':      return <MapView />;
-      case 'about':    return <About />;
-      default:         return <Home setPage={setCurrentPage} />;
+      case 'home':      return <Home setPage={setCurrentPage} />;
+      case 'identify':  return <Identify />;
+      case 'map':       return <MapView />;
+      case 'dashboard': return <Dashboard />;
+      case 'chatbot':   return <Chatbot />;
+      case 'about':     return <About />;
+      default:          return <Home setPage={setCurrentPage} />;
     }
   };
 

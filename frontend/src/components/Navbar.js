@@ -40,12 +40,13 @@ const styles = {
 };
 
 const pages = [
-  { key: 'home',     label: '🏠 Home' },
-  { key: 'identify', label: '🔍 Identify' },
-  { key: 'map',      label: '🗺️ Map' },
-  { key: 'about',    label: 'ℹ️ About' },
+  { key: 'home',      label: '🏠 Home' },
+  { key: 'identify',  label: '🔍 Identify' },
+  { key: 'map',       label: '🗺️ Map' },
+  { key: 'dashboard', label: '📊 Dashboard' },
+  { key: 'chatbot',   label: '🤖 Chat' },
+  { key: 'about',     label: 'ℹ️ About' },
 ];
-
 export default function Navbar({ currentPage, setPage }) {
   return (
     <nav style={styles.nav}>
