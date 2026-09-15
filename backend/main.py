@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.database.db import init_db
-from backend.routes import predict, conservation, sightings, chatbot
+from backend.routes import predict, conservation, sightings, chatbot, audio
 
 app = FastAPI(
     title       = "AI Biodiversity Conservation Assistant",
@@ -21,6 +21,7 @@ app.include_router(predict.router,      prefix="/api", tags=["Species Prediction
 app.include_router(conservation.router, prefix="/api", tags=["Conservation Status"])
 app.include_router(sightings.router,    prefix="/api", tags=["Sightings"])
 app.include_router(chatbot.router,      prefix="/api", tags=["Conservation Chatbot"])
+app.include_router(audio.router,        prefix="/api", tags=["Bird Audio ID"])
 
 @app.on_event("startup")
 async def startup_event():
@@ -42,6 +43,7 @@ async def root():
             "sightings":    "GET  /api/sightings",
             "map":          "GET  /api/sightings/map",
             "chat":         "POST /api/chat",
+            "audio":        "POST /api/audio/identify",
         }
     }
 

@@ -3,6 +3,7 @@ import './index.css';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Identify from './pages/Identify';
+import AudioIdentify from './pages/AudioIdentify';
 import MapView from './pages/MapView';
 import Dashboard from './pages/Dashboard';
 import Chatbot from './pages/Chatbot';
@@ -15,6 +16,7 @@ function App() {
     switch(currentPage) {
       case 'home':      return <Home setPage={setCurrentPage} />;
       case 'identify':  return <Identify />;
+      case 'audio':     return <AudioIdentify />;
       case 'map':       return <MapView />;
       case 'dashboard': return <Dashboard />;
       case 'chatbot':   return <Chatbot />;
