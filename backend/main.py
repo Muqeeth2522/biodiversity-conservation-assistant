@@ -12,7 +12,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins  = ["http://localhost:3000", "http://localhost:5173"],
+    allow_origins  = ["*"],
     allow_methods  = ["*"],
     allow_headers  = ["*"],
 )
@@ -27,26 +27,17 @@ app.include_router(audio.router,        prefix="/api", tags=["Bird Audio ID"])
 async def startup_event():
     init_db()
     print("🌿 Biodiversity Conservation Assistant API is running!")
-    print("📖 API Docs: http://localhost:8000/docs")
+    print("📖 API Docs available at /docs")
 
 @app.get("/")
 async def root():
     return {
-        "message":  "🌿 AI Biodiversity Conservation Assistant",
-        "status":   "running",
-        "version":  "1.0.0",
-        "author":   "Mohammed Abdul Muqeeth | Muqeeth2522",
-        "docs":     "http://localhost:8000/docs",
-        "endpoints": {
-            "predict":      "POST /api/predict",
-            "conservation": "GET  /api/conservation/{species_name}",
-            "sightings":    "GET  /api/sightings",
-            "map":          "GET  /api/sightings/map",
-            "chat":         "POST /api/chat",
-            "audio":        "POST /api/audio/identify",
-        }
+        "message": "🌿 AI Biodiversity Conservation Assistant",
+        "status":  "running",
+        "version": "1.0.0",
+        "author":  "Mohammed Abdul Muqeeth | Muqeeth2522",
     }
 
 @app.get("/health")
 async def health():
-    return {"status": "healthy", "api": "Biodiversity Conservation Assistant v1.0"}
+    return {"status": "healthy"}
