@@ -11,8 +11,9 @@ L.Icon.Default.mergeOptions({
   shadowUrl:     require('leaflet/dist/images/marker-shadow.png'),
 });
 
-const API = 'http://localhost:8000/api';
-
+const API = process.env.NODE_ENV === 'production'
+  ? 'https://biodiversity-api.onrender.com/api'
+  : 'http://localhost:8000/api';
 const styles = {
   page:  { padding: '2rem', maxWidth: '1100px', margin: '0 auto' },
   title: { fontSize: '1.8rem', fontWeight: '700', color: '#fff', marginBottom: '0.5rem' },

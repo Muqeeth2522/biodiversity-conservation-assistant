@@ -1,6 +1,8 @@
 import React, { useState, useRef } from 'react';
 
-const API = 'http://localhost:8000/api';
+const API = process.env.NODE_ENV === 'production'
+  ? 'https://biodiversity-api.onrender.com/api'
+  : 'http://localhost:8000/api';
 
 const styles = {
   page: { minHeight: '90vh', padding: '2rem', maxWidth: '900px', margin: '0 auto' },

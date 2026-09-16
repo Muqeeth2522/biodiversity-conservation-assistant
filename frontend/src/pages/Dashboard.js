@@ -4,8 +4,9 @@ import {
   ResponsiveContainer, Cell, PieChart, Pie, Legend
 } from 'recharts';
 
-const API = 'http://localhost:8000/api';
-
+const API = process.env.NODE_ENV === 'production'
+  ? 'https://biodiversity-api.onrender.com/api'
+  : 'http://localhost:8000/api';
 const COLORS = [
   '#66bb6a','#43a047','#2e7d32','#81c784',
   '#a5d6a7','#1b5e20','#388e3c','#4caf50'
